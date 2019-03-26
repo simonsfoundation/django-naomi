@@ -23,10 +23,10 @@ class NaomiBackend(EmailBackend):
                 if isinstance(attachment, tuple):
                     new_file = open(os.path.join(temporary_path, attachment[0]), 'wb+')
                     if isinstance(attachment[1], str):
-			content = attachment[1].encode('utf-8')
-		    else:
-			content = attachment[1]
-		    new_file.write(content)
+                        content = attachment[1].encode('utf-8')
+                    else:
+                        content = attachment[1]
+                    new_file.write(content)
                     attachments.append([attachment[0], new_file.name])
                     new_file.close()
                 else:
