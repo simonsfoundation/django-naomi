@@ -45,6 +45,10 @@
             padding-left: 10px;
         }
 
+        .bcc {
+            color: #999;
+        }
+
         pre#message_body {
             padding: 4px;
             white-space: pre-wrap;
@@ -73,6 +77,18 @@
                 <div class="col-left">To:</div>
                 <div class="col-right">{{ message.to }}</div>
             </div>
+            {% if message.cc %}
+            <div class="row">
+                <div class="col-left">Cc:</div>
+                <div class="col-right">{{ message.cc }}</div>
+            </div>
+            {% endif %}
+            {% if message.bcc %}
+            <div class="row bcc">
+                <div class="col-left">Bcc:</div>
+                <div class="col-right">{{ message.bcc }} not visible to end-user!</div>
+            </div>
+            {% endif %}
             {% if attachments %}
                 <div class="row">
                     <div class="col-left">Attachment:</div>
